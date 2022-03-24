@@ -2,8 +2,8 @@
 
 ## logowanie:
  - bez logowania -> przeglądanie
- - z zalogowaniem: <br>
-   - zwykły (znacznik "normal") -> kupowanie i sprzedawanie (+ zgłaszanie) <br>
+ - z zalogowaniem: 
+   - zwykły (znacznik "normal") -> kupowanie i sprzedawanie 
    - admin (znacznik "admin") -> + usuwanie oferty
 
 ### logowanie - wygląd:
@@ -24,3 +24,7 @@
  - sprawdzenie czy zalogowany (ma znacznik):
   - nie -> <b>logowanie</b>
   - tak -> przechodzi dalej
+
+-----------------------------------------------------
+
+
