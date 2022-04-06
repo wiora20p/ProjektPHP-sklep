@@ -26,5 +26,5 @@
   - tak -> przechodzi dalej
 
 -----------------------------------------------------
-
+link do tabeli: https://mathlear.atlassian.net/jira/software/projects/PS/boards/4
 
