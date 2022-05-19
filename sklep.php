@@ -13,19 +13,28 @@
         
         <nav class="menu-gorne">
                 <a href="sklep.php"><img src="Logo.png" alt="logo" height="40px"></a>  <!--  class="list-group-item py-1" -->
-                <input type="text" placeholder="Co szukasz?">
+                <div class="szukaj"><input type="text" class="wyszukiwarka" placeholder="Co szukasz?"><img src="icons8-search-24.png" alt="szukaj"></div>
                 <a href="logowanie.php">logowanie</a>  <!--  class="list-group-item" -->
         </nav>
     </header>
     <main>
         <aside>
             <ol>
-                <li>ubrania</li>
-                <li>zabawki</li>
-                <li>książki</li>
+                <li>Moda</li>
+                <li>Zabawki</li>
+                <li>Książki</li>
                 <li>AGD</li>
-                <li>artykuły biurowe</li>
-                <li>sprzęt domowy</li>
+                <li>Artykuły biurowe</li>
+                <li>Sprzęt domowy</li>
+                <li>Artykuły budowlane</li>
+                <li>dom i ogród</li>
+                <li>Zwierzęta</li>
+                <li>Uroda</li>
+                <li>Sztuka</li>
+                <li>Supermarket</li>
+                <li>Motoryzacja</li>
+                <li>Nieruchomości</li>
+                <li>Sport</li>
             </ol>
         </aside>
     </main>
