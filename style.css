@@ -4,6 +4,9 @@ body {
 main {
   background-color: #f2b90f;
 }
+footer {
+  background-color: #594405;
+}
 .menu-gorne {
   display: flex;
   align-items: center;
