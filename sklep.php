@@ -9,14 +9,13 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona główna</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="fixed-top">
         <nav class="menu-gorne">
-                <a href="sklep.php"><img src="Logo.png" alt="logo" height="40px"></a>  <!--  class="list-group-item py-1" -->
-                <form class="szukaj" action="sklep.php" method="POST" >
+                <a href="sklep.php"><img src="Logo.png" alt="logo" height="40px"></a>
+                <form class="szukaj" action="sklep.php" method="POST" > <!-- wysyła dane wyszukiwania do kodu znajdującego się poniżej -->
                     <input name="wyszukiwarka" type="text" class="wyszukiwarka" placeholder="Co szukasz?">
                     <input type="submit" value="szukaj">
                     <!-- <label for="">
@@ -55,46 +54,22 @@ ob_start();
     <footer>afs</footer>
 
 <?php
-// wyszukiwarka - znajduje w linijce wybrany fragment, potem segregacja od najbardziej zbliżonych do najmniej
-    
+//  wyszukiwarka - znajduje w linijce napisany fragment (OK), potem segregacja od najbardziej zbliżonych do najmniej
     $produkty = fopen("produkty.txt","r");
     $wyszukiwarka = $_POST['wyszukiwarka'];
     if (!empty($wyszukiwarka)) {
         echo "<ul>\n";
-
         while(!feof($produkty)){
             $linia = fgets($produkty);
             if(strpos($linia, $wyszukiwarka)){ 
-                echo " Tak ";
+                echo "<li> Tak </li>";
             }
             else 
-                echo " Nie ";
+                echo "<li> Nie </li>";
         }
         echo "</ul>";
-
-
-
-
-
-
-        //list($nazwa, $cena, $opis) = split(" . ", $linia); - nie wiadowo dlaczego nie czyta splita (pokazuje błąd)
-
-        // for ($i=0; $i < count($produkty); $i++) {
-        //     list($nazwa, $cena, $opis) = split(" | ", );
-        //     $eregi = eregi($wyszukiwarka, $produkty);
-
-        //     if (@eregi($wyszukiwarka, $produkty[$index])) {
-        //         echo '<li><a href="'.$g[0].'" title="'.$g[1].'">'.$g[1]."</a></li>\n";
-        //         $bl = true;
-        //     }
-        // }
-
-    //     echo "</ul>";
-
-    // //w przypadku braku wyników
-    // if (!$bl) {
-    //     echo 'Brak wyników';
     }
+
 ?>
 
 </body>
@@ -103,6 +78,10 @@ ob_start();
     foreach($file as $lina)
         strpos($file, $linia) - znajduje frazę w linii (moża w ten sposób szukać loginów - )
         str_contains($linia,$słowo) - czy jest w linii? (może weryfikować hasła)
+
+
+//list($nazwa, $cena, $opis) = split(" . ", $linia); - nie wiadowo dlaczego nie czyta splita (pokazuje błąd)
+
 
 
 
