@@ -1,4 +1,4 @@
- buty | 20.50 | fjasd sfkjsfl saflj nxzvl
- fhsksa | 0.23 | deskl buty safjla
- sflkaj | 23.41 | ksaflk aslfk rw
- sflkaj | 235.41 | ksrw
+ buty | 20.50 | fjasd sfkjsfl saflj nxzvl | nazwa_zdj.png
+ fhsksa | 0.23 | deskl buty safjla | sfahkas.png
+ sflkaj | 23.41 | ksaflk aslfk rw | sgdjhk.png
+ sflkaj | 235.41 | ksrw | wiu.png

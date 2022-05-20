@@ -62,7 +62,6 @@ ob_start();
     if (!empty($wyszukiwarka)) {
         echo "<ul>\n";
 
-        //foreach($wyszukiwarka as $lina)
         while(!feof($produkty)){
             $linia = fgets($produkty);
             if(strpos($linia, $wyszukiwarka)){ 
@@ -71,6 +70,7 @@ ob_start();
             else 
                 echo " Nie ";
         }
+        echo "</ul>";
 
 
 
