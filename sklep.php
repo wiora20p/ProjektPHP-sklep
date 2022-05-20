@@ -1,7 +1,6 @@
 <?php
 ob_start();
 //include 'czyZalogowany.php';
-$produkty = file("produkty.txt");
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -56,26 +55,45 @@ $produkty = file("produkty.txt");
     <footer>afs</footer>
 
 <?php
+// wyszukiwarka - znajduje w linijce wybrany fragment, potem segregacja od najbardziej zbliżonych do najmniej
+    
+    $produkty = fopen("produkty.txt","r");
     $wyszukiwarka = $_POST['wyszukiwarka'];
     if (!empty($wyszukiwarka)) {
         echo "<ul>\n";
-        $dane = file("dane.txt");
-        // for ($index=0; $index < count($dane); $index++) {
-        //     $g = split(" | ", chop($dane[$index]));
-        //     $eregi = eregi($wyszukiwarka, $dane);
 
-        //     if (@eregi($wyszukiwarka, $dane[$index])) {
+        //foreach($wyszukiwarka as $lina)
+        while(!feof($produkty)){
+            $linia = fgets($produkty);
+            if(strpos($linia, $wyszukiwarka)){ 
+                echo " Tak ";
+            }
+            else 
+                echo " Nie ";
+        }
+
+
+
+
+
+
+        //list($nazwa, $cena, $opis) = split(" . ", $linia); - nie wiadowo dlaczego nie czyta splita (pokazuje błąd)
+
+        // for ($i=0; $i < count($produkty); $i++) {
+        //     list($nazwa, $cena, $opis) = split(" | ", );
+        //     $eregi = eregi($wyszukiwarka, $produkty);
+
+        //     if (@eregi($wyszukiwarka, $produkty[$index])) {
         //         echo '<li><a href="'.$g[0].'" title="'.$g[1].'">'.$g[1]."</a></li>\n";
         //         $bl = true;
         //     }
         // }
 
-        echo "</ul>";
-    }
+    //     echo "</ul>";
 
-    //w przypadku braku wyników
-    if (!$bl) {
-        echo 'Brak wyników';
+    // //w przypadku braku wyników
+    // if (!$bl) {
+    //     echo 'Brak wyników';
     }
 ?>
 
@@ -89,4 +107,11 @@ $produkty = file("produkty.txt");
 
 
         trello-tabele(projekty)
+          _
+         / \
+        /   \
+        |   |
+        |___|
+        przegląd po funkcjach w tablicy
+        obiekty w php
   -->
