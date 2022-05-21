@@ -1,4 +1,4 @@
 <?php
 if(!isset($_SESSION ['login'])){
-    header("Location:a.html");
+    header("Location:logowanie.html");
 }

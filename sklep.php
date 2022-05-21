@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 //include 'czyZalogowany.php';
 ?>
 <!DOCTYPE html>
@@ -14,15 +15,23 @@ ob_start();
 <body>
     <header class="fixed-top">
         <nav class="menu-gorne">
-                <a href="sklep.php"><img src="Logo.png" alt="logo" height="40px"></a>
+                <a href="sklep.php"><img src="img/Logo.png" alt="logo" height="40px"></a>
                 <form class="szukaj" action="sklep.php" method="POST" > <!-- wysyła dane wyszukiwania do kodu znajdującego się poniżej -->
                     <input name="wyszukiwarka" type="text" class="wyszukiwarka" placeholder="Co szukasz?">
                     <input type="submit" value="szukaj">
                     <!-- <label for="">
-                        <img src="icons8-search-24.png" alt="szukaj">
+                        <img src="img/icons8-search-24.png" alt="szukaj">
                     </label> -->
                 </form>
-                <a href="logowanie.php">logowanie</a>  <!--  class="list-group-item" -->
+                <?php 
+                if(!isset($_SESSION ["login"]))
+                    echo '<a href="logowanie.html">logowanie</a>';
+                else{
+                    echo $_SESSION ["login"];
+                    echo '<a href="wyloguj.php">wyloguj się</a>';
+                }
+                ?>
+                  <!--  class="list-group-item" -->
         </nav>
     </header>
     <main>
@@ -55,19 +64,21 @@ ob_start();
 
 <?php
 //  wyszukiwarka - znajduje w linijce napisany fragment (OK), potem segregacja od najbardziej zbliżonych do najmniej
-    $produkty = fopen("produkty.txt","r");
-    $wyszukiwarka = $_POST['wyszukiwarka'];
-    if (!empty($wyszukiwarka)) {
-        echo "<ul>\n";
-        while(!feof($produkty)){
-            $linia = fgets($produkty);
-            if(strpos($linia, $wyszukiwarka)){ 
-                echo "<li> Tak </li>";
+    if (isset($_POST['wyszukiwarka'])){
+        $produkty = fopen("produkty.txt","r");
+        $wyszukiwarka = $_POST['wyszukiwarka'];
+        if (!empty($wyszukiwarka)) {
+            echo "<ul>\n";
+            while(!feof($produkty)){
+                $linia = fgets($produkty);
+                if(strpos($linia, $wyszukiwarka)){ 
+                    echo "<li> Tak </li>";
+                }
+                else 
+                    echo "<li> Nie </li>";
             }
-            else 
-                echo "<li> Nie </li>";
+            echo "</ul>";
         }
-        echo "</ul>";
     }
 
 ?>
