@@ -1,3 +1,5 @@
 login🚪haslo💼
 jeden🚪dwa💼
 trzy🚪cztery💼
+osoba🚪osoba💼
+tak🚪nie💼
