@@ -37,13 +37,15 @@ function Logowanie($login, $haslo, $plik){
         echo "<br><br>";
 
         if($testHaslo == $haslo){
-            session_start();
+        session_start();
             $_SESSION["login"] = $login;
             echo "Witaj ".$_SESSION["login"]."!";
             header("Location: index.php");
         }
-        else
+        else{
             echo "Niepoprawne hasło";
+            header("Location:logowanie.php");
+        }
         break;
 
         
@@ -78,8 +80,10 @@ function Rejestracja($login, $haslo, $plik, $plik1){
             break;
         }
     }
-    if ($jest>0)
+    if ($jest>0){
         echo "taki login już stnieje";
+        header("Location: rejestracja.php");
+    }
     else{
         echo "Nie ma loginu jeszcze takiego";
         session_start();

@@ -1,16 +1,28 @@
+
 <?php
 ob_start();
-session_start();
-//include 'czyZalogowany.php';
+$produkty = fopen("produkty.txt","r");
+$wyszukiwarka = $_POST['wyszukiwarka'];
+
+function Produkt($linia){
+    
+    $produkt = array(4);
+    $produkt = mb_split("🍇", $linia);
+    $nazwa = $produkt[0];
+    $cena  = $produkt[1];
+    $opis  = $produkt[2];
+    $obraz  = $produkt[3];
+    echo '<form action="produkt.php" method="POST" ><h3><b>'.$nazwa." - </b> ".$cena."zł</h3>".'<img src="img/'.$obraz.'" alt="obraz" style="width:100px"><input type="submit" value="Więcej"></form>';
+}
 ?>
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona główna</title>
     <link rel="stylesheet" href="style.css">
+    <title>sklep</title>
 </head>
 <body>
     <header>
@@ -31,18 +43,18 @@ session_start();
                     echo '<a href="wyloguj.php">wyloguj się</a>';
                 }
                 ?>
-                  <!--  class="list-group-item" -->
+                    <!--  class="list-group-item" -->
         </nav>
     </header>
     <aside>
         <ol>
-            <a href="logowanie.html"><li>Moda</li></a> 
+            <a href="index.php"><li>Moda</li></a> 
             <li>Zabawki</li>
             <li>Książki</li>
             <li>AGD</li>
             <li>Artykuły biurowe</li>
             <li>Artykuły budowlane</li>
-            <li>dom i ogród</li>
+            <li>dom i ogród</li>    
             <li>Zwierzęta</li>
             <li>Uroda</li>
             <li>Sztuka</li>
@@ -52,37 +64,27 @@ session_start();
             <li>Sport</li>
         </ol>
     </aside>
-    <main>
-        
-    <article>
-        <div class="obraz"></div>
-        <h3><?php ?>
-        </h3>
-    </article>
+    <main class="sklep">
+    <?php
+//  wyszukiwarka - znajduje w linijce napisany fragment (OK), potem segregacja od najbardziej zbliżonych do najmniej
+    if (isset($_POST['wyszukiwarka'])){
+        if (!empty($wyszukiwarka)) {
+            //echo "<ul>\n";
+            while(!feof($produkty)){
+                $linia = fgets($produkty);
+                if(strpos($linia, $wyszukiwarka)){ 
+                    echo '<div class="produkt">';
+                    Produkt($linia);
+                    echo '</div>';
+                }
+                // else 
+                //     echo "<li> Nie </li>";
+            }
+            //echo "</ul>";
+        }
+    }
+    ?>
     </main>
     <footer>Moja strona</footer>
-    
-
-
 </body>
 </html>
-<!-- 
-    foreach($file as $lina)
-        strpos($file, $linia) - znajduje frazę w linii (moża w ten sposób szukać loginów - )
-        str_contains($linia,$słowo) - czy jest w linii? (może weryfikować hasła)
-
-
-//list($nazwa, $cena, $opis) = split(" . ", $linia); - nie wiadowo dlaczego nie czyta splita (pokazuje błąd)
-
-
-
-
-        trello-tabele(projekty)
-          _
-         / \
-        /   \
-        |   |
-        |___|
-        przegląd po funkcjach w tablicy
-        obiekty w php
-  -->

@@ -3,3 +3,5 @@ jeden🚪dwa💼
 trzy🚪cztery💼
 osoba🚪osoba💼
 tak🚪nie💼
+nie🚪nie💼
+tak1🚪tak💼

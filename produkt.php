@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-//include 'czyZalogowany.php';
+include 'czyZalogowany.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -19,9 +19,6 @@ session_start();
                 <form class="szukaj" action="wyszukiwarka.php" method="POST" > <!-- wysyła dane wyszukiwania do kodu znajdującego się poniżej -->
                     <input name="wyszukiwarka" type="text" class="wyszukiwarka" placeholder="Co szukasz?">
                     <input type="submit" value="szukaj">
-                    <!-- <label for="">
-                        <img src="img/icons8-search-24.png" alt="szukaj">
-                    </label> -->
                 </form>
                 <?php 
                 if(!isset($_SESSION ["login"]))
@@ -31,12 +28,11 @@ session_start();
                     echo '<a href="wyloguj.php">wyloguj się</a>';
                 }
                 ?>
-                  <!--  class="list-group-item" -->
         </nav>
     </header>
     <aside>
         <ol>
-            <a href="logowanie.html"><li>Moda</li></a> 
+            <a href="index.php"><li>Moda</li></a> 
             <li>Zabawki</li>
             <li>Książki</li>
             <li>AGD</li>
@@ -54,11 +50,6 @@ session_start();
     </aside>
     <main>
         
-    <article>
-        <div class="obraz"></div>
-        <h3><?php ?>
-        </h3>
-    </article>
     </main>
     <footer>Moja strona</footer>
     
@@ -66,23 +57,3 @@ session_start();
 
 </body>
 </html>
-<!-- 
-    foreach($file as $lina)
-        strpos($file, $linia) - znajduje frazę w linii (moża w ten sposób szukać loginów - )
-        str_contains($linia,$słowo) - czy jest w linii? (może weryfikować hasła)
-
-
-//list($nazwa, $cena, $opis) = split(" . ", $linia); - nie wiadowo dlaczego nie czyta splita (pokazuje błąd)
-
-
-
-
-        trello-tabele(projekty)
-          _
-         / \
-        /   \
-        |   |
-        |___|
-        przegląd po funkcjach w tablicy
-        obiekty w php
-  -->
